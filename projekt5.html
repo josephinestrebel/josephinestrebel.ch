@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R Austausch – Projekt</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Zusätzliche Styles für diese Seite (falls nötig) */
+    .project-main {
+      display: flex;
+      align-items: center;
+      padding: 40px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 40px auto 20px auto;
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .project-text p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .project-main img {
+      width: 25vw;
+      max-width: 320px;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+
+    /* Navigation Styles */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: none;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: blue;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: blue;
+      font-weight: 600;
+    }
+
+    /* Checkbox für das Menü verstecken */
+    .nav-toggle-checkbox {
+      display: none;
+    }
+
+    /* Hamburger-Icon verstecken */
+    .nav-toggle-label {
+      display: none;
+      font-size: 2.5rem;
+      color: blue;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive für kleine Bildschirme */
+    @media (max-width: 768px) {
+      /* Hamburger Icon anzeigen */
+      .nav-toggle-label {
+        display: block;
+      }
+
+      /* Navigation standardmäßig verstecken */
+      .navigation {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* unter der Top-Bar */
+        right: 0;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        width: 180px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      /* Navigation anzeigen, wenn Checkbox aktiviert ist */
+      .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+        display: flex;
+      }
+    }
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ganze Höhe des Bildschirms */
+}
+
+main {
+  flex: 1; /* nimmt den verbleibenden Platz zwischen Header und Footer ein */
+}
+
+footer {
+  background-color: white;
+  text-align: left;         /* Text linksbündig */
+  padding: 20px 40px;       /* optional: gleiches Padding wie Header */
+  color: white;
+  border-top: white;
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="site-title">
+      <a href="Landing.html"><h1>JOSÉPHINE STREBEL</h1></a>
+    </div>
+
+    <!-- Checkbox für Menü -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+    <!-- Hamburger Icon -->
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
+
+    <nav class="navigation">
+      <a href="index.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Projektinhalt -->
+  <main class="project-main">
+    <div class="project-text">
+      <h2>R Austausch</h2>
+      <p>Die fast schon organischen wirkenden Formen auf dem ehemaligen Carparkplatz auf dem Inseli haben durch ihre Dimensionierung einen dauerhaften Charakter. Sie laden durch die Formgebung ein zu verweilen und zu explorieren. Doch wenn ich das nächste Mal wieder das Inseli betrete, dann sind diese Verweilmöglichkeiten anders angeordnet. 
+Diese Zwischennutzung fokussiert sich auf räumliche Veränderung durch die Aktivierung der Nutzenden. Diese Aktivierung erfolgt in Form eines Feedbacks. Wenn einer Nutzerin die Formen nicht passend angeordnet sind, kann dieser Vorschlag der Stadt weitergeleitet werden und die Anordnung wird diesen Wünschen angepasst. 
+</p>
+<div class="project-info-box">
+  <p class="year"><strong>Entstehungsjahr:</strong> 2023</p>
+  <p class="contributors"><strong>Zusammen mit:</strong> Cédric Bühler</p>
+</div>
+
+    </div>
+    <img src="Projekte/Space2Titel.jpg" alt="R Austausch" />
+  </main>
+
+
+  <!-- Galerie -->
+  <div class="projectgallery">
+    <img src="Projekt5/A1Canion Anordnung_03_V1 Kopie 2.jpg" alt="SCDH" />
+        <img src="Projekt5/AAAAAAATisch_03_V2 Kopie.jpg" alt="SCDH" />
+    <img src="Projekt5/A2velo_01_V1 Kopie.jpeg" alt="SCDH" />
+   <img src="Projekt5/DK.BA_SD_301.H23_SPACE_2_Bild3_Bühler_Strebel.jpeg" alt="SCDH" />
+    <img src="Projekt5/Groß (DK.BA_SD_301.H23_SPACE_2_Bild1_Bühler_Strebel).jpeg" alt="SCDH" />
+  </div>
+
+</div>
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+   <iframe src="https://youtu.be/atzw3jK6i7c" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+  </iframe>
+</div>
+
+  
+  <footer id="footer">
+    <p>&copy;2025 joséphinestrebel</p>
+  </footer>
+</body>
+</html>

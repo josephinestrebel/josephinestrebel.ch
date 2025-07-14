@@ -1,0 +1,1292 @@
+/* Allgemeines Reset */
+* {
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: blue;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    cursor: url('cursor.png'), auto;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Styling für Links */
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover, a:focus-visible {
+    outline: none;
+}
+
+/* Navigation und Header Styling */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: blue;
+}
+
+.site-title h1 {
+    margin: 0;
+}
+
+/* Hamburger Menü (CSS only) */
+.nav-toggle-checkbox {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  font-size: 2.5rem;
+  color: blue;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Navigation Links */
+.navigation {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navigation a {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: blue;
+    padding: 1rem;
+    transition: text-shadow 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    text-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+    outline: none;
+}
+
+/* Hamburger Menü Aktivierung */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0rem;
+    z-index: 1001;
+  }
+  .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+    display: flex;
+  }
+}
+
+/* Fokus sichtbar für Barrierefreiheit */
+a:focus-visible,
+.project:focus-visible {
+  outline: 2px solid #003366;
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* About Section */
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.375rem;
+    margin: 3.75rem auto;
+    max-width: 62.5rem;
+    padding: 1.25rem;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    font-size: 1rem;
+    color: #222;
+}
+
+.about-image img {
+    max-width: 25rem;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+
+/* Kontakt Section */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.375rem;
+    margin: 3.75rem auto;
+    max-width: 62.5rem;
+    padding: 1.25rem;
+}
+
+/* Projekte Section */
+.projects-section {
+    margin-top: 6.25rem;
+    padding: 2rem;
+    min-height: calc(100vh - 6.25rem);
+    background-color: white;
+    width: 100%;
+    display: block;
+}
+
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Spalten gleich breit */
+  gap: 20px;
+  max-width: 100vw; /* volle Breite */
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Verhindert horizontalen Scroll */
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Standard links */
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  border-radius: 0px;
+  overflow: hidden;
+  background: white;
+  box-sizing: border-box;
+}
+
+.project img {
+  width: 100%; /* Bild füllt die Spalte */
+  height: auto;
+  display: block;
+  border-radius: 0;
+  object-fit: cover; /* Bild bleibt proportional */
+}
+
+.project-text {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: black !important;
+}
+
+.project-text h3,
+.project-text p,
+.project-text strong,
+.project-text a {
+  color: black !important;
+}
+
+/* Optional: Hover Effekt */
+.project:hover,
+.project:focus-visible {
+  box-shadow: 0 6px 16px rgba(0,0,255,0.3);
+  outline: none;
+}
+
+/* Body und html Einstellungen für Randfreiheit */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* kein horizontaler Scroll */
+}
+
+
+
+.project-text h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.project-text {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Bild-Rotation */
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+.project-image img {
+    animation: rotate 6s ease-in-out infinite;
+}
+
+/* Horizontale Galerie */
+.projectgallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  gap: 1rem;
+  padding: 1.25rem 0 2.5rem 0;
+  background: #f9f9f9;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #003366 transparent;
+}
+
+.projectgallery::-webkit-scrollbar {
+  height: 12px;
+}
+
+.projectgallery::-webkit-scrollbar-thumb {
+  background-color: #003366;
+  border-radius: 6px;
+}
+
+.projectgallery img {
+  flex: 0 0 auto;
+  max-width: 30rem;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.projectgallery img:hover,
+.projectgallery img:focus-visible {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 139, 0.6);
+  border-color: #003366;
+  z-index: 10;
+  outline: none;
+}
+
+/* Responsive für kleine Bildschirme */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0rem;
+    z-index: 1001;
+  }
+  .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+    display: flex;
+  }
+
+  .projectgallery {
+    flex-direction: column;
+    padding: 0.625rem 1rem;
+    gap: 1.25rem;
+    width: 100%;
+    overflow-y: visible;
+  }
+  
+  .projectgallery img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .project {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project img {
+    max-width: 50%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .project-text {
+    max-width: 100%;
+    flex: unset;
+    padding: 0;
+  }
+
+  .about-wrapper,
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 90vw;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+/* Sehr kleine Bildschirme (Handys) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navigation a {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .projectgallery img {
+    width: 100%;
+  }
+}
+
+.about-wrapper {
+  display: flex;
+  flex-direction: column; /* Kinder untereinander */
+  gap: 20px; /* Abstand zwischen Text, Social Links und Bild */
+  max-width: 800px; /* Breite begrenzen */
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-text {
+  width: 100%;
+}
+
+.social-links {
+  display: flex; /* damit Links nebeneinander stehen */
+  justify-content: center; /* zentriert die Links */
+  gap: 30px; /* Abstand zwischen den Links */
+}
+
+.social-links a {
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  text-decoration: underline; /* hier fehlte das 'e' */
+  outline: none;
+}
+
+.about-image {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Bild zentriert */
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Optional: Responsive Anpassung */
+@media (min-width: 768px) {
+  .about-wrapper {
+    flex-direction: row; /* Ab Tablet: Text + Links links, Bild rechts */
+    align-items: flex-start;
+  }
+
+  .about-text,
+  .social-links {
+    max-width: 50%;
+  }
+
+  .social-links {
+    margin-top: 1rem;
+  }
+
+  .about-image {
+    max-width: 300px;
+    margin-left: 2rem;
+  }
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* kleineres Padding */
+  z-index: 1000;
+  color: blue;
+}
+.projects-section {
+  margin-top: 110px; /* 60px top-bar + 50px filter-bar */
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Filterbar direkt unter der top-bar fixiert */
+.filter-bar {
+  position: fixed;
+  top: 60px;            /* genau unterhalb der top-bar */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: white;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 1rem;
+  padding: 0 20px;
+  z-index: 999;
+  margin: 0;
+  color: blue;
+}
+
+/* Content genug Abstand geben, damit er nicht unter den Bars liegt */
+.projects-section {
+  position: relative;
+  margin-top: 110px;  /* 60 + 50 (Höhe von Navbar und Filterbar) */
+  z-index: 1;
+}
+
+/* Optional: damit Hamburger Menü oben nicht verdeckt wird, z-index ggf. anpassen */
+@media (max-width: 768px) {
+  .navigation {
+    top: 110px; /* Navigation öffnet sich unter Filterbar */
+    z-index: 1001;
+  }
+}
+
+/* Projektbild Styling */
+.project-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* HÃ¶he des Bildes anpassen */
+}
+
+.project-image img {
+    width: 90%; /* BildgrÃ¶ÃŸe */
+    max-width: 1000px; /* Maximale Breite */
+    height: auto;
+}
+
+/* Header Styling fÃ¼r grÃ¶ÃŸere Bildschirme */
+.site-title h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Responsive Styling fÃ¼r kleine Bildschirme */
+@media (max-width: 600px) {
+    .site-title h1 {
+        font-size: 2rem;
+    }
+    
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-text, .about-image {
+        max-width: 100%;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+
+/* Rotation-Animation fÃ¼r Bilder */
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+.project-image img {
+    animation: rotate 6s ease-in-out infinite;
+}
+
+.project-info-box p {
+  color: black !important; /* Text komplett schwarz */
+  font-size: 0.9rem !important;        /* Schrift etwas kleiner */
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border: 2px solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.project-info-box p:first-child {
+  margin-top: 0;
+}
+.project-info-box p strong {
+  color: black !important; /* Titel auch schwarz */
+}
+
+.project-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.project-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* passt Höhe an */
+}
+
+.project-image-wrapper {
+  position: relative;
+  max-width: 1000px;
+  width: 90%; /* Bildgröße */
+  margin: 0 auto; /* zentriert im flex container */
+}
+
+/* Allgemeines Reset */
+* {
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: blue;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    cursor: url('cursor.png'), auto;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Styling für Links */
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover, a:focus-visible {
+    outline: none;
+}
+
+/* Navigation und Header Styling */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: blue;
+}
+
+.site-title h1 {
+    margin: 0;
+}
+
+/* Hamburger Menü (CSS only) */
+.nav-toggle-checkbox {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  font-size: 2.5rem;
+  color: blue;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Navigation Links */
+.navigation {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navigation a {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: blue;
+    padding: 1rem;
+    transition: text-shadow 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    text-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+    outline: none;
+}
+
+/* Hamburger Menü Aktivierung */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0rem;
+    z-index: 1001;
+  }
+  .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+    display: flex;
+  }
+}
+
+/* Fokus sichtbar für Barrierefreiheit */
+a:focus-visible,
+.project:focus-visible {
+  outline: 2px solid #003366;
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* About Section */
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.375rem;
+    margin: 3.75rem auto;
+    max-width: 62.5rem;
+    padding: 1.25rem;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    font-size: 1rem;
+    color: #222;
+}
+
+.about-image img {
+    max-width: 25rem;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+
+/* Kontakt Section */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.375rem;
+    margin: 3.75rem auto;
+    max-width: 62.5rem;
+    padding: 1.25rem;
+}
+
+/* Projekte Section */
+.projects-section {
+    margin-top: 6.25rem;
+    padding: 2rem;
+    min-height: calc(100vh - 6.25rem);
+    background-color: white;
+    width: 100%;
+    display: block;
+}
+
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Spalten gleich breit */
+  gap: 20px;
+  max-width: 100vw; /* volle Breite */
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Verhindert horizontalen Scroll */
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Standard links */
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  border-radius: 0px;
+  overflow: hidden;
+  background: white;
+  box-sizing: border-box;
+}
+
+.project img {
+  width: 100%; /* Bild füllt die Spalte */
+  height: auto;
+  display: block;
+  border-radius: 0;
+  object-fit: cover; /* Bild bleibt proportional */
+}
+
+.project-text {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: black !important;
+}
+
+.project-text h3,
+.project-text p,
+.project-text strong,
+.project-text a {
+  color: black !important;
+}
+
+/* Optional: Hover Effekt */
+.project:hover,
+.project:focus-visible {
+  box-shadow: 0 6px 16px rgba(0,0,255,0.3);
+  outline: none;
+}
+
+/* Body und html Einstellungen für Randfreiheit */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* kein horizontaler Scroll */
+}
+
+
+
+.project-text h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.project-text {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Bild-Rotation */
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+.project-image img {
+    animation: rotate 6s ease-in-out infinite;
+}
+
+/* Horizontale Galerie */
+.projectgallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  gap: 1rem;
+  padding: 1.25rem 0 2.5rem 0;
+  background: #f9f9f9;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #003366 transparent;
+}
+
+.projectgallery::-webkit-scrollbar {
+  height: 12px;
+}
+
+.projectgallery::-webkit-scrollbar-thumb {
+  background-color: #003366;
+  border-radius: 6px;
+}
+
+.projectgallery img {
+  flex: 0 0 auto;
+  max-width: 30rem;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.projectgallery img:hover,
+.projectgallery img:focus-visible {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 139, 0.6);
+  border-color: #003366;
+  z-index: 10;
+  outline: none;
+}
+
+/* Responsive für kleine Bildschirme */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0rem;
+    z-index: 1001;
+  }
+  .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+    display: flex;
+  }
+
+  .projectgallery {
+    flex-direction: column;
+    padding: 0.625rem 1rem;
+    gap: 1.25rem;
+    width: 100%;
+    overflow-y: visible;
+  }
+  
+  .projectgallery img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .project {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project img {
+    max-width: 50%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .project-text {
+    max-width: 100%;
+    flex: unset;
+    padding: 0;
+  }
+
+  .about-wrapper,
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 90vw;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+/* Sehr kleine Bildschirme (Handys) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navigation a {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .projectgallery img {
+    width: 100%;
+  }
+}
+
+.about-wrapper {
+  display: flex;
+  flex-direction: column; /* About Text oben, dann Links, dann Bild */
+  align-items: flex-start;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.about-text {
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column; /* Links einzeln auf Zeilen */
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.social-links a {
+  color: blue;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+text-decoration: underlin
+  outline none;
+}
+
+.about-image {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Bild zentriert */
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Optional: Responsive Anpassung */
+@media (min-width: 768px) {
+  .about-wrapper {
+    flex-direction: row; /* Ab Tablet: Text + Links links, Bild rechts */
+    align-items: flex-start;
+  }
+
+  .about-text,
+  .social-links {
+    max-width: 50%;
+  }
+
+  .social-links {
+    margin-top: 1rem;
+  }
+
+  .about-image {
+    max-width: 300px;
+    margin-left: 2rem;
+  }
+}
+
+/* Filterbar nicht mehr fixiert */
+.filter-bar {
+  position: static;  /* oder einfach position entfernen */
+  top: auto;
+  left: auto;
+  right: auto;
+  height: 50px; /* falls gewünscht */
+  background-color: white;
+  border-bottom: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 1rem;
+  padding: 0 20px;
+  z-index: auto; /* kein fixierter Layer */
+  margin: 0;
+  color: blue;
+}
+/* Den Margin-Top anpassen, da Filterbar jetzt mitscrollt */
+/* Die 110px waren für fixierte Top-Bar + Filterbar */
+/* Nun nur noch Top-Bar Höhe: */
+.projects-section {
+  position: relative;
+  margin-top: 60px; /* nur Höhe der fixierten Top-Bar */
+  z-index: 1;
+}
+
+
+/* .top-bar bleibt fixiert wie gehabt */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  border-bottom: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  color: blue;
+}
+
+/* Content genug Abstand geben, damit er nicht unter den Bars liegt */
+.projects-section {
+  position: relative;
+  margin-top: 110px;  /* 60 + 50 (Höhe von Navbar und Filterbar) */
+  z-index: 1;
+}
+
+/* Optional: damit Hamburger Menü oben nicht verdeckt wird, z-index ggf. anpassen */
+@media (max-width: 768px) {
+  .navigation {
+    top: 110px; /* Navigation öffnet sich unter Filterbar */
+    z-index: 1001;
+  }
+}
+
+/* Projektbild Styling */
+.project-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* HÃ¶he des Bildes anpassen */
+}
+
+.project-image img {
+    width: 90%; /* BildgrÃ¶ÃŸe */
+    max-width: 1000px; /* Maximale Breite */
+    height: auto;
+}
+
+/* Header Styling fÃ¼r grÃ¶ÃŸere Bildschirme */
+.site-title h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Responsive Styling fÃ¼r kleine Bildschirme */
+@media (max-width: 600px) {
+    .site-title h1 {
+        font-size: 2rem;
+    }
+    
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-text, .about-image {
+        max-width: 100%;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+
+/* Rotation-Animation fÃ¼r Bilder */
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+.project-image img {
+    animation: rotate 6s ease-in-out infinite;
+}
+
+.project-info-box p {
+  color: black !important; /* Text komplett schwarz */
+  font-size: 0.9rem !important;        /* Schrift etwas kleiner */
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border: 2px solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.project-info-box p:first-child {
+  margin-top: 0;
+}
+.project-info-box p strong {
+  color: black !important; /* Titel auch schwarz */
+}
+
+/* Projektbild Container */
+.project-image {
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+  height: calc(100vh - 100px); /* Bildhöhe passend zum Viewport */
+  width: 100%; /* WICHTIG: volle Breite */
+  margin: 50px auto 0 auto; /* falls nötig */
+}
+
+
+/* Wrapper für das Bild */
+.project-image-wrapper {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto; /* zentriert im Container */
+  position: relative;
+  display: block; /* block damit margin auto funktioniert */
+}
+
+/* Bild selbst */
+.project-image-wrapper img {
+  position: relative; /* damit z-index wirkt */
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: rotate 6s ease-in-out infinite;
+  margin: 0 auto;
+}
+
+/* Hover Text */
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20rem;
+  color: blue;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.project-image-wrapper:hover .hover-text {
+  opacity: 1;
+}

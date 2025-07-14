@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About </title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Navigation Styles - fixierte Top-Bar */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;           /* Höhe der Navigationsleiste */
+      background: white;
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+      color: blue;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: blue;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: blue;
+      font-weight: 600;
+    }
+
+    /* Checkbox für das Menü verstecken */
+    .nav-toggle-checkbox {
+      display: none;
+    }
+
+    /* Hamburger-Icon verstecken */
+    .nav-toggle-label {
+      display: none;
+      font-size: 2.5rem;
+      color: blue;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive für kleine Bildschirme */
+    @media (max-width: 768px) {
+      /* Hamburger Icon anzeigen */
+      .nav-toggle-label {
+        display: block;
+      }
+
+      /* Navigation standardmäßig verstecken */
+      .navigation {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* unter der fixierten Top-Bar */
+        right: 0;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        width: 180px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      /* Navigation anzeigen, wenn Checkbox aktiviert ist */
+      .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+        display: flex;
+      }
+    }
+
+    /* Projektinhalt mit Abstand zur fixierten Navigationsleiste */
+    .project-main {
+      margin-top: 60px; /* Abstand, damit Inhalt nicht unter Top-Bar rutscht */
+      display: flex;
+      align-items: center;
+      padding: 40px;
+      gap: 40px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .project-text p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .project-main img {
+      width: 25vw;
+      max-width: 320px;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+
+    .project-info-box p.link1 strong a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .project-info-box p.link1 strong a:hover {
+      text-decoration: underline;
+    }
+
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ganze Höhe des Bildschirms */
+}
+
+main {
+  flex: 1; /* nimmt den verbleibenden Platz zwischen Header und Footer ein */
+}
+
+footer {
+  background-color: white;
+  text-align: left;         /* Text linksbündig */
+  padding: 20px 40px;       /* optional: gleiches Padding wie Header */
+  color: white;
+  border-top: white;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="site-title">
+      <a href="Landing.html"><h1>JOSÉPHINE STREBEL</h1></a>
+    </div>
+
+    <!-- Checkbox für Menü -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+    <!-- Hamburger Icon -->
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
+
+    <nav class="navigation">
+      <a href="index.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Projektinhalt -->
+  <main class="project-main">
+    <div class="project-text">
+      <h2>About</h2>
+      <p>
+        Hallo, ich bin Josephine und habe Spatial Design in Luzern studiert. Während meines Studiums habe ich einen Austausch in Stockholm gemacht, wo ich mich auf Innenarchitektur und Möbeldesign konzentriert habe. Zuvor habe ich den Vorkurs am SFG in Basel besucht.
+
+        Besonders spannend finde ich an Spatial Design die Interaktion mit Menschen – sei es im Austausch mit anderen Kreativen oder im Gespräch mit Menschen, die sonst wenig mit Räumen zu tun haben. Auch interessiert mich, wie Menschen sich in Räumen verhalten und wie Räume Geschichten erzählen können.
+
+        Mein Ziel ist es, nicht einfach nur Räume zu gestalten, sondern Orte zu schaffen, die Geschichten transportieren und in denen man sich wohlfühlt.
+      </p>
+      <div class="project-info-box">
+        <p class="link1">
+          <strong>
+            <a href="https://www.instagram.com/josephinestrebel/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </strong>
+        </p>
+        <p class="link1">
+          <strong>
+            <a href="https://www.linkedin.com/in/joséphine-strebel-938ab735a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </strong>
+        </p>
+      </div>
+    </div>
+    <img src="BildABOUR.jpg" alt="Bild joséphine" />
+  </main>
+
+  <footer id="footer">
+    <p>&copy;2025 joséphinestrebel</p>
+  </footer>
+</body>
+</html>

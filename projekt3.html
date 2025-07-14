@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tod in der Vertikalen – Projekt</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Zusätzliche Styles für diese Seite (falls nötig) */
+    .project-main {
+      display: flex;
+      align-items: center;
+      padding: 40px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 40px auto 20px auto;
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .project-text p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .project-main img {
+      width: 25vw;
+      max-width: 320px;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+
+    /* Navigation Styles */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: none;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: blue;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: blue;
+      font-weight: 600;
+    }
+
+    /* Checkbox für das Menü verstecken */
+    .nav-toggle-checkbox {
+      display: none;
+    }
+
+    /* Hamburger-Icon verstecken */
+    .nav-toggle-label {
+      display: none;
+      font-size: 2.5rem;
+      color: blue;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive für kleine Bildschirme */
+    @media (max-width: 768px) {
+      /* Hamburger Icon anzeigen */
+      .nav-toggle-label {
+        display: block;
+      }
+
+      /* Navigation standardmäßig verstecken */
+      .navigation {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* unter der Top-Bar */
+        right: 0;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        width: 180px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      /* Navigation anzeigen, wenn Checkbox aktiviert ist */
+      .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+        display: flex;
+      }
+    }
+
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ganze Höhe des Bildschirms */
+}
+
+main {
+  flex: 1; /* nimmt den verbleibenden Platz zwischen Header und Footer ein */
+}
+
+footer {
+  background-color: white;
+  text-align: left;         /* Text linksbündig */
+  padding: 20px 40px;       /* optional: gleiches Padding wie Header */
+  color: white;
+  border-top: white;
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="site-title">
+      <a href="Landing.html"><h1>JOSÉPHINE STREBEL</h1></a>
+    </div>
+
+    <!-- Checkbox für Menü -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+    <!-- Hamburger Icon -->
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
+
+    <nav class="navigation">
+      <a href="index.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Projektinhalt -->
+  <main class="project-main">
+    <div class="project-text">
+      <h2>Tod in der Vertikalen</h2>
+      <p>Die Ausstellung, welche durch eine VR-Brille erfahrbar wird, befasst sich mit der Thematik Tod in der westlichen Gesellschaft. Der Ankerpunkt der Ausstellung sind Gedanken und Geschichten von Personen mit unterschiedlichen Lebensrealitäten. Im Rahmen des Projektes wurden 15 Menschen zum Thema Tod interviewt. Im Unity wurde die Liftfahrt mit vier verschiedenen Etagen umgesetzt. Ziel des Projektes ist es einen Raum der Auseinandersetzung zu schaffen.</p>
+    </div>
+    <div class="project-info-box">
+  <p class="year"><strong>Entstehungsjahr:</strong> 2022</p>
+  <p class="contributors"><strong>Zusammen mit:</strong> Jessica Abderhalden & Tara Vitali</p>
+</div>
+    <img src="Projekte/Bild 09.12.22 um 15.35.jpg" alt="Tod in der Vertikalen" />
+  </main>
+
+  <!-- Galerie -->
+  <div class="projectgallery">
+    <img src="Projekt3/Bild-1.jpg" alt="Tod in der Vertikalen" />
+    <img src="Projekt3/Bild2.jpg" alt="Tod in der Vertikalen" />
+    <img src="Projekt3/Bild3.jpg" alt="Tod in der Vertikalenk" />
+    <img src="Projekt3/Bild4.jpg" alt="Tod in der Vertikalen" />
+    <img src="Projekt3/Bild5.jpg" alt="Tod in der Vertikalen" />
+    <img src="Projekt3/Bild8.jpg" alt="Tod in der Vertikalen" />
+    <img src="Projekt3/IMG_7735 Kopie_6.jpg" alt="Tod in der Vertikalen" />
+  </div>
+
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+   <iframe src="https://player.vimeo.com/video/865157961" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+  </iframe>
+</div>
+
+  
+  <footer id="footer">
+    <p>&copy;2025 joséphinestrebel</p>
+  </footer>
+</body>
+</html>
