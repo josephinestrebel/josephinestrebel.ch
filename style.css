@@ -1287,6 +1287,7 @@ text-decoration: underlin
   z-index: 10;
 }
 
-.project-image-wrapper:hover .hover-text {
+.project-image-wrapper.clicked .hover-text {
   opacity: 1;
 }
+
