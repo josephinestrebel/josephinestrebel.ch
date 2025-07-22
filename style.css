@@ -1290,4 +1290,32 @@ text-decoration: underlin
 .project-image-wrapper.clicked .hover-text {
   opacity: 1;
 }
+@media (max-width: 600px) {
+  .hover-text {
+    font-size: 1.5rem;     /* kleiner auf Handy */
+    color: blue;           /* oder eine andere Farbe */
+    padding: 0 10px;       /* optional, um Ränder zu vermeiden */
+    text-align: center;
+  }
+
+  .project-image-wrapper img {
+    max-width: 100%;       /* Bild passt sich an */
+    height: auto;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .site-title h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .navigation {
+    gap: 10px;
+  }
+}
 
