@@ -24,7 +24,7 @@
       color: blue;
     }
 
-    .navigation {
+   .navigation {
       display: flex;
       gap: 20px;
     }
@@ -35,12 +35,12 @@
       font-weight: 600;
     }
 
-    /* Checkbox für das Menü verstecken */
+    /* Verstecke die Checkbox */
     .nav-toggle-checkbox {
       display: none;
     }
 
-    /* Hamburger-Icon verstecken */
+    /* Hamburger-Icon (Label) verstecken */
     .nav-toggle-label {
       display: none;
       font-size: 2.5rem;
@@ -49,14 +49,14 @@
       user-select: none;
     }
 
-    /* Responsive für kleine Bildschirme */
+    /* Mobile Styles */
     @media (max-width: 768px) {
-      /* Hamburger Icon anzeigen */
+      /* Hamburger anzeigen */
       .nav-toggle-label {
         display: block;
       }
 
-      /* Navigation standardmäßig verstecken */
+      /* Navigation verstecken */
       .navigation {
         display: none;
         flex-direction: column;
@@ -64,13 +64,13 @@
         top: 70px; /* unter der Top-Bar */
         right: 0;
         background: white;
-        border: 1px solid #ccc;
+        border: none;
         padding: 10px 20px;
-        width: 180px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        width: 200px;
+        box-shadow: 0;
       }
 
-      /* Navigation anzeigen, wenn Checkbox aktiviert ist */
+      /* Navigation anzeigen, wenn Checkbox aktiv */
       .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
         display: flex;
       }
@@ -103,14 +103,6 @@
     display: block;
   }
 
-  .nav-toggle-label {
-    display: block;
-    font-size: 1.8rem;
-    margin-top: 0.1rem;
-    color: blue;
-    cursor: pointer;
-    align-self: flex-start;
-  }
 }
 <!-- kleiner Test-Commit für neues Deploydment -->
 
@@ -120,7 +112,7 @@
 <body>
   <header class="top-bar">
     <div class="site-title">
-      <h1><span class="line1">JOSÉPHINE</span><br><span class="line2">STREBEL</span></h1>
+      <h1><span class="line1">JOSÉPHINE STREBEL</span></h1>
 
     </div>
 
