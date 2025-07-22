@@ -24,10 +24,6 @@
       color: blue;
     }
 
-    .navigation {
-      display: flex;
-      gap: 20px;
-    }
 
     .navigation a {
       text-decoration: none;
@@ -55,26 +51,29 @@
       .nav-toggle-label {
         display: block;
       }
+.navigation {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* direkt unter .top-bar */
+    right: 0;
+    background: white;
+    padding: 10px 20px;
+    width: 100vw;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
 
-      /* Navigation verstecken */
-      .navigation {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px; /* unter der Top-Bar */
-        right: 0;
-        background: white;
-        border: none;
-        padding: 10px 20px;
-        width: 200px;
-        box-shadow: 0;
-      }
-
-      /* Navigation anzeigen, wenn Checkbox aktiv */
-      .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
-        display: flex;
-      }
-    }
+  .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
+    display: flex;
+  }
+}
 
     /* Filter-Bar Styling */
     .filter-bar {
@@ -137,10 +136,6 @@ footer {
     word-break: break-word;
   }
 
-  .navigation {
-    top: 120px;
-    width: 100%;
-  }
 
   .filter-bar {
     flex-direction: column;
@@ -178,7 +173,6 @@ footer {
     align-self: flex-end;
   }
 }
-
   </style>
 </head>
 <body>

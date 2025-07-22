@@ -57,16 +57,6 @@
       color: blue;
     }
 
-    .navigation {
-      display: flex;
-      gap: 20px;
-    }
-
-    .navigation a {
-      text-decoration: none;
-      color: blue;
-      font-weight: 600;
-    }
 
     /* Checkbox für das Menü verstecken */
     .nav-toggle-checkbox {
@@ -89,24 +79,6 @@
         display: block;
       }
 
-      /* Navigation standardmäßig verstecken */
-      .navigation {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px; /* unter der Top-Bar */
-        right: 0;
-        background: white;
-        border: 1px solid #ccc;
-        padding: 10px 20px;
-        width: 180px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
-
-      /* Navigation anzeigen, wenn Checkbox aktiviert ist */
-      .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
-        display: flex;
-      }
     }
         body {
   display: flex;
