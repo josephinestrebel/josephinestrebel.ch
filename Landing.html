@@ -79,15 +79,16 @@
 
 @media (max-width: 600px) {
   .top-bar {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: flex-start;
     padding: 0.5rem 1rem;
-    height: auto;
+    gap: 0.75rem;
   }
 
   .site-title {
-    flex-grow: 1;
+    flex-grow: 0;
   }
 
   .site-title h1 {
@@ -103,11 +104,15 @@
   }
 
   .nav-toggle-label {
-    font-size: 2rem;
-    margin-left: 1rem;
+    display: block;
+    font-size: 1.8rem;
+    margin-top: 0.1rem;
+    color: blue;
+    cursor: pointer;
     align-self: flex-start;
   }
 }
+<!-- kleiner Test-Commit für neues Deploydment -->
 
 
   </style>
