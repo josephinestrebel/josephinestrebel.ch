@@ -1937,16 +1937,6 @@ main {
   font-weight: 600;
 }
 
-/* --- Projektbereich --- */
-.project-main {
-  display: flex;
-  align-items: center;
-  padding: 40px;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 40px auto 20px auto;
-}
-
 .project-text {
   flex: 1;
 }
@@ -2068,16 +2058,6 @@ main {
   text-decoration: none;
   color: blue;
   font-weight: 600;
-}
-
-/* Projektbereich */
-.project-main {
-  display: flex;
-  align-items: center;
-  padding: 40px;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 40px auto 20px auto;
 }
 
 .project-text {
@@ -2581,4 +2561,28 @@ footer {
   .nav-toggle-checkbox:checked + .nav-toggle-label + .navigation {
     display: flex;
   }
+}
+.project-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+
+.project-text, .project-image {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+  .project-text, .project-image {
+    flex: 1 1 45%;
+  }
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
