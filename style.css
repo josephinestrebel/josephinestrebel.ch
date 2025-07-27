@@ -2586,3 +2586,25 @@ footer {
   display: block;
   border-radius: 8px;
 }
+
+.project-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.project-text {
+  flex: 1 1 400px;
+}
+
+.project-image {
+  flex: 1 1 400px;
+}
+
+.project-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
