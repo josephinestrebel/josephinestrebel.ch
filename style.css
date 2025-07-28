@@ -632,3 +632,53 @@ body.project-page .filter-bar button {
   font-size: 1.1rem;       /* größere Schrift */
   border-width: 2px;       /* etwas markantere Rahmen */
 }
+/* Flex-Layout auch für About */
+body.about-page .project-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+body.about-page .project-main .project-text,
+body.about-page .project-main img {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+@media (max-width: 600px) {
+  /* Content oben: Bild unter/über Text zweispaltig umschalten */
+  body.project-page .project-main {
+    flex-direction: column;      /* eine Spalte */
+    align-items: stretch;
+    text-align: center;          /* Text zentrieren */
+  }
+  body.project-page .project-main .project-text,
+  body.project-page .project-main img {
+    flex: 1 1 100%;              /* beide 100% Breite */
+    min-width: auto;
+    margin: 0;                   /* keine Ränder mehr */
+  }
+  body.project-page .project-main img {
+    width: 100vw;                /* volle Viewport‑Breite */
+    margin-left: calc(-50vw + 50%); /* korrigiert Full‑Bleed auf Mobile */
+    object-fit: cover;
+  }
+
+  /* Galerie vertikal & full‑width */
+  body.project-page .projectgallery {
+    flex-direction: column;      /* Bilder untereinander */
+    flex-wrap: nowrap;
+    overflow: visible;           /* kein Scroll mehr */
+    padding: 0;                  /* Padding raus */
+    gap: 1rem;                   /* etwas Abstand */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+  body.project-page .projectgallery img {
+    width: 100vw;                /* full‑width */
+    height: auto;
+    object-fit: cover;
+    margin: 0 0 1rem;            /* unten Platz für Text/Next */
+  }
+
+  /* Falls du Text unter jedem Galerie‑Bild willst, packe ihn einfach nach dem <img> in HTML */
+}
