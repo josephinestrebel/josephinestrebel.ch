@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swiss Center for Design and Health "SCDH" – Projekt</title>
+  <title>SCDH – Projekt</title>
   <link rel="stylesheet" href="style.css" />
-  
 </head>
-<body>
+<body class="project-page">
 
   <header class="top-bar">
     <div class="site-title">
       <a href="Landing.html"><h1>JOSÉPHINE STREBEL</h1></a>
     </div>
 
-    <!-- Checkbox für Menü -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
-    <!-- Hamburger Icon -->
     <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
 
     <nav class="navigation">
@@ -24,37 +21,99 @@
       <a href="about.html">About</a>
     </nav>
   </header>
-
-  <!-- Projektinhalt -->
-  <main class="project-main">
+<div class="project-container">
+<main class="project-main">
     <div class="project-text">
-      <h2>Swiss Center for Design and Health "SCDH"</h2>
-      <p>Das Projekt ist in einem Modul im Studium Spatial Design in Kooperation mit dem Swiss Center for Desing and Health, welches gerade dabei ist, ihre Räumlichkeiten neu zu gestalten, entstanden. Es besteht aus einer vierwöchigen Recherche / Analyse Phase und einer gleichlangen Phase in der ein konkretes Design Konzept visualisiert wurde: 
+      <h2>SCDH</h2>
+      <p>
+       Das Projekt ist in einem Modul im Studium Spatial Design in Kooperation mit dem Swiss Center for Desing and Health, welches gerade dabei ist, ihre Räumlichkeiten neu zu gestalten, entstanden. Es besteht aus einer vierwöchigen Recherche / Analyse Phase und einer gleichlangen Phase in der ein konkretes Design Konzept visualisiert wurde: 
 Wenn man als Kind mit Bauklötzen spielte, tauchte man in eine Fantasie- welt ein; Die Möglichkeiten waren unbegrenzt und neue Welten sind ent- standen. Warum sollte dies als erwachsene Person anders sein?
 Ein Bauklotz symbolisiert eine Idee, die im SCDH entsteht oder weiterentwqickelt wird. Zusammen lassen sie sich aufeinander bauen, neu stapeln und unendlich wachsen.</p>
+      </p>
+      <div class="project-info-box">
+        <p class="year"><strong>Entstehungsjahr:</strong> 2023</p>
+        <p class="contributors"><strong>Zusammen mit:</strong> Jessica Abderhalden & Tara Vitali</p>
+      </div>
     </div>
-  <div class="project-info-box">
-  <p class="year"><strong>Entstehungsjahr:</strong> 2023</p>
-  <p class="contributors"><strong>Zusammen mit:</strong> Jessica Abderhalden & Tara Vitali</p>
-</div>
-    <img src="Projekte/SCDHTITEL Kopie.jpg" alt="Tod in der Vertikalen" />
+
+  <img src="Projekte/SCDHTITEL Kopie.jpg" alt="Hauptbild SCDH" />  
   </main>
 
+
   <!-- Galerie -->
-  <div class="projectgallery">
+  <section class="projectgallery">
     <img src="Projekt4/Groß (Maskiert_SCDH_Konzept).jpeg" alt="SCDH" />
         <img src="Projekt4/Groß (FINAL_COLLAGE_VIS1 Kopie).jpeg" alt="SCDH" />
     <img src="Projekt4/Groß (FINAL_2COLLAGE_HALLE+ Kopie).jpeg" alt="SCDH" />
    <img src="Projekt4/Groß (FINAL_ARENA2COLLAGE_VISUAL3 ).jpeg" alt="SCDH" />
     <img src="Projekt4/Groß (FINAL_WORKSHOPARENA_COLLAGE Kopie).jpeg" alt="SCDH" />
-
-  </div>
-
-</div>
-
-  
-  <footer id="footer">
+</section>
+</div>  
+<footer id="footer">
     <p>&copy;2025 joséphinestrebel</p>
   </footer>
+  <!-- Bild‑Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <span id="imgModalClose" class="img-modal__close">&times;</span>
+    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
+    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
+    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
+  </div>
+
+
+<script>
+  const modal       = document.getElementById('imgModal');
+  const modalImg    = document.getElementById('imgModalImg');
+  const modalClose  = document.getElementById('imgModalClose');
+  const prevBtn     = document.getElementById('imgPrev');
+  const nextBtn     = document.getElementById('imgNext');
+  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
+
+  let currentIndex = 0;
+
+  function openModal(idx) {
+    currentIndex = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function showPrev() {
+    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+  }
+  function showNext() {
+    openModal((currentIndex + 1) % galleryImgs.length);
+  }
+
+  // Doppelklick öffnet Modal am richtigen Index
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('dblclick', () => openModal(idx));
+  });
+
+  // Close‑Button und Klick außerhalb
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Vor/Zurück-Buttons
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+  // Keyboard-Steuerung
+  document.addEventListener('keydown', e => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeModal();
+  });
+</script>
+
 </body>
 </html>

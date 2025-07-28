@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zämme Wäsche – Projekt</title>
+  <title>Mirror of Konstfack – Projekt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="project-page">
 
   <header class="top-bar">
     <div class="site-title">
@@ -21,39 +21,96 @@
       <a href="about.html">About</a>
     </nav>
   </header>
-
-  <main class="project-main">
+<div class="project-container">
+<main class="project-main">
     <div class="project-text">
-      <h2>Zämme Wäsche</h2>
+      <h2>Mirror of Konstfack</h2>
       <p>
-        Im Rahmen eines Ideenwettbewerbs der Stiftung St. Ottilien entstand eine interaktive Installation im historischen Waschhaus von 1842. Die Installation zeigt den Wandel des Waschens von einer gemeinschaftlichen, manuellen Tätigkeit hin zur heutigen automatisierten und individuellen Praxis.
+       Fokus auf die Bibliothek von Konstfack – ein öffentlicher Raum für Kunst, Design und Handwerk. Unpraktische Regale und verletzungsanfällige Details machten eine Umgestaltung nötig. Die aktuelle Atmosphäre wirkt kühl und unpersönlich, im Kontrast zur lebendigen Hochschule. Ziel ist eine Bibliothek, die Austausch, Inspiration und Rückzug gleichermaßen ermöglicht. Bestehendes Material wird wiederverwendet, ergänzt durch partizipative Elemente. Atelierhafte Qualitäten und definierte Räume schaffen eine neue Identität.
       </p>
-      <p>
-        Im Mittelpunkt steht eine defekte Waschmaschinentrommel, die durch manuelles Drehen Licht- und Klangwelten erzeugt und so den physischen Aufwand und die soziale Dimension des früheren Waschens erfahrbar macht.
-      </p>
-      <p>
-        Der erweiterte Außenbereich mit Sitzmöbeln aus recycelten Wäschetrommeln und Lavendel-Pflanzen schafft eine multisensorische Atmosphäre, die Tradition, Nachhaltigkeit und Gemeinschaft verbindet.
-      </p>
-
       <div class="project-info-box">
         <p class="year"><strong>Entstehungsjahr:</strong> 2024</p>
-        <p class="contributors"><strong>Zusammen mit:</strong> Jessica Abderhalden & Tara Vitali</p>
+        <p class="contributors"><strong>Zusammen mit:</strong> Mira Caullier, Flora Schliekmann und Ian Dupraz</p>
       </div>
     </div>
 
-    <img src="Projekte/WaschhüsliTitel.jpg" alt="Hauptbild Zämme Wäsche" />
+  <img src="Projekte/Mirrorofkonstfack.jpg" alt="Hauptbild Mirrorofkonstfack" />  
   </main>
 
+
   <section class="projectgallery">
-    <img src="Projekt1/CMYKWaschhüsli2.jpg" alt="Zämme Wäsche" />
-    <img src="Projekt1/FINAL_PLAN_3.jpg" alt="Zämme Wäsche" />
-    <img src="Projekt1/Konstruktion4.jpg" alt="Zämme Wäsche" />
-    <img src="Projekt1/VioletZonierung5.jpg" alt="Zämme Wäsche" />
+    <img src="Projekt2/11_Drawing_BLUE Kopie.jpg" alt="Mirrorofkonstfack" />
+    <img src="Projekt2/240521_POSTER_2.jpg" alt="Mirrorofkonstfack" />
+    <img src="Projekt2/_B1A2507 Kopie_5.jpg" alt="Mirrorofkonstfack" />
+    <img src="Projekt2/_B1A2598 Kopie_withouttripod.jpg" alt="Mirrorofkonstfack" />
   </section>
-  
+</div>
+
   <footer id="footer">
-    <p>&copy; 2025 Joséphine Strebel</p>
+    <p>&copy;2025 joséphinestrebel</p>
   </footer>
+  <!-- Bild‑Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <span id="imgModalClose" class="img-modal__close">&times;</span>
+    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
+    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
+    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
+  </div>
+
+
+<script>
+  const modal       = document.getElementById('imgModal');
+  const modalImg    = document.getElementById('imgModalImg');
+  const modalClose  = document.getElementById('imgModalClose');
+  const prevBtn     = document.getElementById('imgPrev');
+  const nextBtn     = document.getElementById('imgNext');
+  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
+
+  let currentIndex = 0;
+
+  function openModal(idx) {
+    currentIndex = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function showPrev() {
+    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+  }
+  function showNext() {
+    openModal((currentIndex + 1) % galleryImgs.length);
+  }
+
+  // Doppelklick öffnet Modal am richtigen Index
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('dblclick', () => openModal(idx));
+  });
+
+  // Close‑Button und Klick außerhalb
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Vor/Zurück-Buttons
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+  // Keyboard-Steuerung
+  document.addEventListener('keydown', e => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeModal();
+  });
+</script>
 
 </body>
 </html>

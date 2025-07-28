@@ -37,7 +37,7 @@ text-align: left;
 padding: 20px 40px;
 color: none;
 font-size: 1rem;
-border-top: 1px solid #eee;
+border-top: 1px solid white;
 }
 
 /* ===== Typography ===== */
@@ -80,7 +80,7 @@ z-index: 1000;
 }
 /* ===== Main Title Size ===== */
 .site-title h1 {
-font-size: 3rem; / Haupttitel vergrößern */
+font-size: 3rem; /* Haupttitel vergrößern */
 }
 /* ===== Navigation Bar Position ===== */
 .top-bar {
@@ -237,8 +237,7 @@ max-width: 1200px;
 margin: 40px auto;
 display: flex;
 flex-wrap: wrap;
-gap: 40px;
-align-items: flex-start;
+gap: 40px; align-items: flex-start;
 }
 
 .project-main img {
@@ -292,8 +291,7 @@ flex-wrap: wrap;
 gap: 2rem;
 max-width: 800px;
 margin: 3rem auto;
-padding: 0 1rem;
-align-items: flex-start;
+padding: 0 1rem; align-items: flex-start;
 }
 
 .about-text,
@@ -329,7 +327,7 @@ border: none !important; /* Entfernt den blauen Kasten um die Info-Box */
 }
 .project-info-box p {
 border: none !important; /* Entfernt Rand um die Absätze */
-}         /* etwas helleres Blau beim Hover */
+        /* etwas helleres Blau beim Hover */
 text-decoration: underline; /* optionale Unterstreichung beim Hover */
 }
 
@@ -397,12 +395,12 @@ margin-top: 60px; / aus inline-Styles in projekt?.html */
 display: flex;
 justify-content: center;
 align-items: center;
-margin-top: 150px; / Abstand unter Header /
+margin-top: 150px; /* Abstand unter Header */
 }
 
 .project-image-wrapper {
   position: relative;
-width: 60vw; / Bildbreite anpassen */
+width: 60vw; /* Bildbreite anpassen */
 max-width: 1000px;
 margin: 0 auto;
 }
@@ -442,11 +440,11 @@ opacity: 1;
 }
 
 /* ===== Horizontal Gallery Size ===== */
-/* ===== Grid Configuration for Index Page ===== /
+/* ===== Grid Configuration for Index Page ===== */
 .projects-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);  / 4 Spalten festlegen /
-grid-auto-rows: auto;                   / Zeilenhöhe automatisch */
+grid-template-columns: repeat(4, 1fr);  /* 4 Spalten festlegen /
+grid-auto-rows: auto;                   /* Zeilenhöhe automatisch */
 gap: 20px;
 padding: 40px;
 margin-top: 110px;
@@ -496,22 +494,6 @@ vertical-align: middle;
 margin-right: 0;
 }
 
-/* ===== Project Detail Layout Fix =====*/ {
-display: flex;
-flex-wrap: wrap;
-align-items: flex-start;
-gap: 20px;
-}
-.project-main .project-text {
-flex: 1 1 45%;  /* Text nimmt bis zu 45% Breite */
-min-width: 300px;
-}
-.project-main img {
-flex: 1 1 45%;  /* Bild nimmt bis zu 45% Breite */
-max-width: 45%;
-height: auto;
-object-fit: contain;
-}
 
 /* ===== Video Styling ===== */
 .video-wrapper {
@@ -529,3 +511,124 @@ border: none;
 margin-top: 2rem;
 }
 
+/* =============================================
+   Einheitliches Layout für alle Projektseiten
+   ============================================= */
+body.project-page .project-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+body.project-page .project-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+body.project-page .project-main .project-text,
+body.project-page .project-main img {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+body.project-page .projectgallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+body.project-page .projectgallery img {
+  width: 250px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ===== Full‑Bleed Galerie ===== */
+body.project-page .projectgallery {
+  position: relative;
+  width: 100vw;                      
+  left: 50%;                         
+  margin-left: -50vw;                
+  margin-right: -50vw;               
+  padding: 1rem 0;                   
+  display: flex;                     
+  flex-wrap: nowrap;                 
+  overflow-x: auto;                  
+  overflow-y: hidden;                
+  gap: 1rem;                         
+}
+
+body.project-page .projectgallery img {
+  flex: 0 0 auto;                    
+  max-height: 300px;                 
+  object-fit: contain;               
+}
+
+
+
+/* ===== Bild‑Modal ===== */
+.img-modal {
+  display: none;               /* versteckt, bis geöffnet */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.img-modal__content {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.img-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: blue;
+  cursor: pointer;
+}
+/* ===== Modal‑Navigation ===== */
+.img-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: blue;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  z-index: 2100;
+}
+.img-modal__nav--prev { left: 1rem; }
+.img-modal__nav--next { right: 1rem; }
+.img-modal__nav:focus { outline: none; }
+
+/* ===== Keine Unterstreichung in der Info‑Box ===== */
+body.project-page .project-info-box p {
+  text-decoration: none !important;
+}
+
+/* ===== Größere Filter‑Bar ===== */
+body.project-page .filter-bar {
+  padding: 20px 40px;      /* vertikal/horizontal mehr Raum */
+  gap: 1.5rem;             /* etwas größeren Abstand zwischen Buttons */
+  margin-top: 60px;        /* beibehalten oder anpassen */
+  background: #fff;
+}
+
+body.project-page .filter-bar button {
+  padding: 12px 24px;      /* größere Klickfläche */
+  font-size: 1.1rem;       /* größere Schrift */
+  border-width: 2px;       /* etwas markantere Rahmen */
+}

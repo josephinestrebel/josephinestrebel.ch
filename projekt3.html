@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projekt 3 – Tod in der Vertikalen</title>
+  <title>Tod in der Vertikalen – Projekt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="project-page">
 
   <header class="top-bar">
     <div class="site-title">
@@ -22,25 +22,22 @@
     </nav>
   </header>
 
-  <main class="project-main">
+<div class="project-container">
+<main class="project-main">
     <div class="project-text">
       <h2>Tod in der Vertikalen</h2>
       <p>
-        Die Ausstellung, welche durch eine VR-Brille erfahrbar wird, befasst sich mit der Thematik Tod in der westlichen Gesellschaft. 
-        Der Ankerpunkt der Ausstellung sind Gedanken und Geschichten von Personen mit unterschiedlichen Lebensrealitäten. 
-        Im Rahmen des Projektes wurden 15 Menschen zum Thema Tod interviewt. 
-        In Unity wurde die Liftfahrt mit vier verschiedenen Etagen umgesetzt. 
-        Ziel des Projektes ist es, einen Raum der Auseinandersetzung zu schaffen.
+       Die Ausstellung, welche durch eine VR-Brille erfahrbar wird, befasst sich mit der Thematik Tod in der westlichen Gesellschaft. Der Ankerpunkt der Ausstellung sind Gedanken und Geschichten von Personen mit unterschiedlichen Lebensrealitäten. Im Rahmen des Projektes wurden 15 Menschen zum Thema Tod interviewt. In Unity wurde die Liftfahrt mit vier verschiedenen Etagen umgesetzt. Ziel des Projektes ist es, einen Raum der Auseinandersetzung zu schaffen.
       </p>
-
       <div class="project-info-box">
         <p class="year"><strong>Entstehungsjahr:</strong> 2022</p>
-        <p class="contributors"><strong>Zusammen mit:</strong> Jessica Abderhalden & Tara Vitali</p>
+        <p class="contributors"><strong>Zusammen mit:</strong>  Jessica Abderhalden & Tara Vitali</p>
       </div>
     </div>
 
-    <img src="Projekte/Bild 09.12.22 um 15.35.jpg" alt="Tod in der Vertikalen" />
+  <img src="Projekte/Bild 09.12.22 um 15.35.jpg" alt="Hauptbild Tod in der Vertikalen" />  
   </main>
+
 
   <section class="projectgallery">
     <img src="Projekt3/Bild-1.jpg" alt="Tod in der Vertikalen" />
@@ -51,7 +48,7 @@
     <img src="Projekt3/Bild8.jpg" alt="Tod in der Vertikalen" />
     <img src="Projekt3/IMG_7735 Kopie_6.jpg" alt="Tod in der Vertikalen" />
   </section>
-
+</div>
   <section class="video-wrapper">
     <iframe src="https://player.vimeo.com/video/865157961"
             frameborder="0"
@@ -63,6 +60,68 @@
   <footer id="footer">
     <p>&copy; 2025 Joséphine Strebel</p>
   </footer>
+  <!-- Bild‑Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <span id="imgModalClose" class="img-modal__close">&times;</span>
+    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
+    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
+    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
+  </div>
+
+
+<script>
+  const modal       = document.getElementById('imgModal');
+  const modalImg    = document.getElementById('imgModalImg');
+  const modalClose  = document.getElementById('imgModalClose');
+  const prevBtn     = document.getElementById('imgPrev');
+  const nextBtn     = document.getElementById('imgNext');
+  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
+
+  let currentIndex = 0;
+
+  function openModal(idx) {
+    currentIndex = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function showPrev() {
+    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+  }
+  function showNext() {
+    openModal((currentIndex + 1) % galleryImgs.length);
+  }
+
+  // Doppelklick öffnet Modal am richtigen Index
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('dblclick', () => openModal(idx));
+  });
+
+  // Close‑Button und Klick außerhalb
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Vor/Zurück-Buttons
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+  // Keyboard-Steuerung
+  document.addEventListener('keydown', e => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeModal();
+  });
+</script>
 
 </body>
 </html>
