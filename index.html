@@ -86,7 +86,28 @@
 
     </div>
   </main>
+<!-- Filter‑Script ans Ende packen -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".filter-btn");
+  const projects = document.querySelectorAll(".projects-grid .project");
 
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.filter;
+
+      projects.forEach(project => {
+        const cats = project.dataset.categories.split(" ");
+        project.style.display = (filter === "all" || cats.includes(filter)) ? "" : "none";
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
   <!-- 🔹 FOOTER -->
   <footer id="footer">
     <p>&copy;2025 joséphinestrebel</p>
@@ -94,29 +115,3 @@
 </body>
 </html>
 
-// 🔁 Filter-Funktionalität
-document.addEventListener("DOMContentLoaded", () => {
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projects = document.querySelectorAll(".project");
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Aktiven Button setzen
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      const filter = button.getAttribute("data-filter");
-
-      projects.forEach((project) => {
-        const categories = project.getAttribute("data-categories") || "";
-
-        // Sichtbarkeit je nach Filter
-        if (filter === "all" || categories.split(" ").includes(filter)) {
-          project.style.display = "flex";
-        } else {
-          project.style.display = "none";
-        }
-      });
-    });
-  });
-});
