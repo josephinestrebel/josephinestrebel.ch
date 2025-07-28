@@ -645,40 +645,70 @@ body.about-page .project-main img {
   min-width: 300px;
 }
 @media (max-width: 600px) {
-  /* Content oben: Bild unter/über Text zweispaltig umschalten */
-  body.project-page .project-main {
-    flex-direction: column;      /* eine Spalte */
-    align-items: stretch;
-    text-align: center;          /* Text zentrieren */
-  }
-  body.project-page .project-main .project-text,
-  body.project-page .project-main img {
-    flex: 1 1 100%;              /* beide 100% Breite */
-    min-width: auto;
-    margin: 0;                   /* keine Ränder mehr */
-  }
-  body.project-page .project-main img {
-    width: 100vw;                /* volle Viewport‑Breite */
-    margin-left: calc(-50vw + 50%); /* korrigiert Full‑Bleed auf Mobile */
-    object-fit: cover;
+  /* ===== Index‑Grid auf 1 Spalte mit Rand ===== */
+  .projects-grid {
+    display: block;          /* Block‑Layout statt Grid */
+    padding: 0;              /* Ggf. in der Grid‑Wrapper entfernen */
+    margin: 0;               /* Basis‑Margin resetten */
   }
 
-  /* Galerie vertikal & full‑width */
-  body.project-page .projectgallery {
-    flex-direction: column;      /* Bilder untereinander */
-    flex-wrap: nowrap;
-    overflow: visible;           /* kein Scroll mehr */
-    padding: 0;                  /* Padding raus */
-    gap: 1rem;                   /* etwas Abstand */
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+  .projects-grid .project {
+    width: calc(100% - 2rem) !important;    /* 1rem Rand links rechts */
+    margin: 1rem auto 1.5rem !important; /* oben und unten 1rem Abstand, zentriert */
+    box-sizing: border-box !important;         /* Padding und Border einbeziehen */
+    border-radius: 0px;              /* optional: sanfte Ecken */
+    overflow: hidden;                /* verhindert Überlauf */
   }
-  body.project-page .projectgallery img {
-    width: 100vw;                /* full‑width */
+
+  .projects-grid .project img {
+    width: 100%;                     /* Bild füllt Projekt‑Card */
     height: auto;
     object-fit: cover;
-    margin: 0 0 1rem;            /* unten Platz für Text/Next */
+    display: block;
   }
 
-  /* Falls du Text unter jedem Galerie‑Bild willst, packe ihn einfach nach dem <img> in HTML */
+  .projects-grid .project-text {
+    padding: 1rem;                   /* Textbereich ebenfalls etwas gepuffert */
+    text-align: center;              /* optional zentriert */
+  }
 }
+
+@media (max-width: 600px) {
+  /* ===== Projekt‑Detail: Bild zentrieren im Container ===== */
+  body.project-page .project-main img {
+    order: 1;
+    width: 100%;               /* 100% der Container‑Breite */
+    max-width: 400px;          /* optional: eine Höchstbreite */
+    margin: 0 auto 1.5rem;     /* zentriert und Abstand nach unten */
+    object-fit: cover;
+  }
+
+  /* ===== Text darunter ===== */
+  body.project-page .project-main .project-text {
+    order: 2;
+    flex: none;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* ===== Galerie: vertikal stapeln & im Container ===== */
+  body.project-page .projectgallery {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    overflow-x: visible !important;
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto 2rem !important;
+    padding: 0 !important;
+    gap: 1rem !important;
+    position: relative !important;
+    left: auto !important;
+  }
+  body.project-page .projectgallery img {
+    width: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+  }
+}
+
