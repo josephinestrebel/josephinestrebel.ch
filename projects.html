@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Joséphine Strebel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- 🔹 HEADER -->
+  <header class="top-bar">
+    <div class="site-title">
+      <a href="Landing.html"><h1>JOSÉPHINE STREBEL</h1></a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
+
+    <nav class="navigation">
+      <a href="index.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- 🔹 FILTERBAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="virtueller-raum">Virtueller Raum</button>
+    <button class="filter-btn" data-filter="physischer-raum">Physischer Raum</button>
+    <button class="filter-btn" data-filter="sonstiges">Sonstiges</button>
+  </div>
+
+  <!-- 🔹 PROJEKTE -->
+  <main class="projects-section">
+    <div class="projects-grid">
+
+      <!-- Projekt-Beispiele -->
+      <a href="projekt1.html" class="project" data-categories="physischer-raum">
+        <img src="Projekte/WaschhüsliTitel.jpg" alt="Zämme Wäsche" />
+        <div class="project-text">
+          <h3>Zämme Wäsche</h3>
+          <p>Austellungskonzept Waschhüsli in St. Ottilien</p>
+        </div>
+      </a>
+
+      <a href="projekt2.html" class="project" data-categories="physischer-raum">
+        <img src="Projekte/Mirrorofkonstfack.jpg" alt="Mirror of Konstfack" />
+        <div class="project-text">
+          <h3>Mirror of Konstfack</h3>
+          <p>Bibliothek Umgestaltungskonzept</p>
+        </div>
+      </a>
+
+      <a href="projekt3.html" class="project" data-categories="virtueller-raum">
+        <img src="Projekte/Bild 09.12.22 um 15.35.jpg" alt="Tod in der Vertikalen" />
+        <div class="project-text">
+          <h3>Tod in der Vertikalen</h3>
+          <p>Virtuelles Ausstellungskonzept</p>
+        </div>
+      </a>
+
+      <a href="projekt4.html" class="project" data-categories="physischer-raum">
+        <img src="Projekte/SCDHTITEL Kopie.jpg" alt="SCDH" />
+        <div class="project-text">
+          <h3>SCDH</h3>
+          <p>Workplace Design & Konzeptkonkretisierung</p>
+        </div>
+      </a>
+
+      <a href="projekt5.html" class="project" data-categories="physischer-raum virtueller-raum">
+        <img src="Projekte/Space2Titel.jpeg" alt="R Austausch" />
+        <div class="project-text">
+          <h3>R Austausch</h3>
+          <p>Zwischennutzung fürs Inseli</p>
+        </div>
+      </a>
+
+      <a href="projekt6.html" class="project" data-categories="physischer-raum">
+        <img src="Projekte/Bildschirm­foto 2025-07-14 um 11.12.30.png" alt="RUUM GE | RUUM NE" />
+        <div class="project-text">
+          <h3>RUUM GE | RUUM NE</h3>
+          <p>Gestaltung gegen Geschlechterungleichheit im öffentlichen Raum</p>
+        </div>
+      </a>
+
+    </div>
+  </main>
+<!-- Filter‑Script ans Ende packen -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".filter-btn");
+  const projects = document.querySelectorAll(".projects-grid .project");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.filter;
+
+      projects.forEach(project => {
+        const cats = project.dataset.categories.split(" ");
+        project.style.display = (filter === "all" || cats.includes(filter)) ? "" : "none";
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
+  <!-- 🔹 FOOTER -->
+  <footer id="footer">
+    <p>&copy;2025 joséphinestrebel</p>
+  </footer>
+</body>
+</html>
+
