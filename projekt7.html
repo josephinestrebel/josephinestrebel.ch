@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bahnhofsgang – Projekt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="project-page">
+
+  <header class="top-bar">
+    <div class="site-title">
+      <a href="index.html"><h1>JOSÉPHINE STREBEL</h1></a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Navigation umschalten">&#9776;</label>
+
+    <nav class="navigation">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+<div class="project-container">
+  <main class="project-main">
+    <div class="project-text">
+      <h2>Bahnhofsgang</h2>
+      <p>
+        
+Die Menschen und das physische Gebäude ergeben zusammen den Bahnhof. Was passiert, wenn ich die beiden Faktoren voneinander ablöse und die Reisenden deplatziere? Wenn sie beispielsweise plötzlich nicht mehr von der Eingangshalle des Bahnhofs auf die Perrons gehen, son- dern sie durch den Gang meiner eigenen Wohnung in die Schlafzimmer schreiten.
+      </p>
+      <div class="project-info-box">
+        <p class="year"><strong>Entstehungsjahr:</strong> 2025</p>
+      </div>
+    </div>
+
+    <img src="Projekte/Projekt7_TITEL.jpg" alt="Collage Bahnhof" />  
+  </main>
+
+  <section class="projectgallery">
+    <img src="Projekt7/Mittel (DK.BA_SD_101.H22_SPACE_1_Bild2_Strebel).jpeg" alt="SCDH" />
+    <img src="Projekt7/Mittel (DK.BA_SD_101.H22_SPACE_1_Bild3_Strebel).jpeg" alt="SCDH" />
+    <img src="Projekt7/Mittel (Gleis_BahnhofSkizze).jpeg" alt="SCDH" />
+    <img src="Projekt7/Mittel (Szenen_Bahnhofsgang-1 Kopie).jpeg" alt="SCDH" />
+  </section>
+</div>
+  <footer id="footer">
+    <p>&copy; 2025 Joséphine Strebel</p>
+  </footer>
+  <!-- Bild‑Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <span id="imgModalClose" class="img-modal__close">&times;</span>
+    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
+    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
+    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
+  </div>
+
+
+<script>
+  const modal       = document.getElementById('imgModal');
+  const modalImg    = document.getElementById('imgModalImg');
+  const modalClose  = document.getElementById('imgModalClose');
+  const prevBtn     = document.getElementById('imgPrev');
+  const nextBtn     = document.getElementById('imgNext');
+  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
+
+  let currentIndex = 0;
+
+  function openModal(idx) {
+    currentIndex = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function showPrev() {
+    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+  }
+  function showNext() {
+    openModal((currentIndex + 1) % galleryImgs.length);
+  }
+
+  // Doppelklick öffnet Modal am richtigen Index
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('dblclick', () => openModal(idx));
+  });
+
+  // Close‑Button und Klick außerhalb
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Vor/Zurück-Buttons
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+  // Keyboard-Steuerung
+  document.addEventListener('keydown', e => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeModal();
+  });
+</script>
+
+</body>
+</html>
