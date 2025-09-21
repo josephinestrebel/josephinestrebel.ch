@@ -784,3 +784,20 @@ body.about-page .about-image {
     padding: 0 1rem;
   }
 }
+.fullscreen-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* weiches Scrollen auf iOS */
+  width: 100%;
+  height: 100vh; /* nimmt volle Höhe des Bildschirms */
+}
+
+.fullscreen-scroll img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Bild füllt den Viewport */
+  scroll-snap-align: start;
+}
