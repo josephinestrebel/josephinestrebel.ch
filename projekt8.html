@@ -62,3 +62,69 @@ Im Zusammenspiel entsteht Spannung: Nähe trifft auf Distanz, Intimität auf Lee
   </footer>
 </body>
 </html>
+
+ <!-- Bild‑Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <span id="imgModalClose" class="img-modal__close">&times;</span>
+    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
+    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
+    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
+  </div>
+
+
+<script>
+  const modal       = document.getElementById('imgModal');
+  const modalImg    = document.getElementById('imgModalImg');
+  const modalClose  = document.getElementById('imgModalClose');
+  const prevBtn     = document.getElementById('imgPrev');
+  const nextBtn     = document.getElementById('imgNext');
+  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
+
+  let currentIndex = 0;
+
+  function openModal(idx) {
+    currentIndex = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function showPrev() {
+    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+  }
+  function showNext() {
+    openModal((currentIndex + 1) % galleryImgs.length);
+  }
+
+  // Doppelklick öffnet Modal am richtigen Index
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('dblclick', () => openModal(idx));
+  });
+
+  // Close‑Button und Klick außerhalb
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Vor/Zurück-Buttons
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+  // Keyboard-Steuerung
+  document.addEventListener('keydown', e => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeModal();
+  });
+</script>
+
+</body>
+</html>
