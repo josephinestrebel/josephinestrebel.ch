@@ -784,20 +784,17 @@ body.about-page .about-image {
     padding: 0 1rem;
   }
 }
-.fullscreen-scroll {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* weiches Scrollen auf iOS */
-  width: 100%;
-  height: 100vh; /* nimmt volle Höhe des Bildschirms */
+.gallery-text {
+  max-width: 800px;      /* zentrierter Block, gleiche Breite wie Project-Text */
+  margin: 40px auto;     /* zentriert den Block selbst */
+  padding: 0 20px;       /* etwas Innenabstand für mobile Geräte */
+  text-align: left;      /* Text bleibt linksbündig */
+  color: #000;           /* Textfarbe Schwarz */
+  font-size: 1rem;
+  line-height: 1.6;
 }
-
-.fullscreen-scroll img {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Bild füllt den Viewport */
-  scroll-snap-align: start;
+.gallery-text h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #000;           /* auch Überschrift schwarz */
 }

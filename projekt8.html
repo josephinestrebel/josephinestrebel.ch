@@ -47,78 +47,18 @@ Im Zusammenspiel entsteht Spannung: Nähe trifft auf Distanz, Intimität auf Lee
      <img src="projekt8/Groß (Gesichts_Makro_V9).jpeg" alt="SCDH" />
   </section>
 </div>
-<section class="fullscreen-scroll">
-  <img src="projekt8/Blättern/Bildschirm­foto 2025-09-21 um 18.44.36.png" alt="SCDH" />
-  <img src="projekt8/Blättern/Bildschirm­foto 2025-09-21 um 18.44.46.png" alt="SCDH" />
-  <img src="projekt8/Blättern/Bildschirm­foto 2025-09-21 um 18.44.57.png" alt="SCDH" />
-  <img src="projekt8/Blättern/Bildschirm­foto 2025-09-21 um 18.45.11.png" alt="SCDH" />
-  <img src="projekt8/Blättern/Bildschirm­foto 2025-09-21 um 18.45.17.png" alt="SCDH" />
-</section>
+ <section class="gallery-text">
+    <h3>Nach dem letzten Waldbrand auf dem Hügel vor dem grössten Berg in dieser Gegend, wirken die Bäume wie eingepflanzte Stöcke. So kommt auch, vor allem von der gegenüberliegenden Seite des Tals gesehen, deren gleichmässig geometrische Anordnung zur Geltung.
+      Sobald man den Weg auf sich nimmt und diesen gebrandmarkten Hügel erklimmt, offenbaren sich einige Kuriositäten: Zwischen den inszeniert wirkenden, kahlen Bäumen fliesst ein kleiner Bach, der in ein Auffangbecken mündet. Die Tiefe des sich darin befindenden Wassers lässt sich durch die dunkle, sich vom Wind leicht wellende Oberfläche erahnen.
+      Links davon, verdeckt vom Felsen, befindet sich eine Feuerstelle, um die sich die letzten Bäumen tummeln. Dahinter erhebt sich die Masse an Felsgestein. Nur durchs Anfassen lässt sich die Rau- heit und Kälte des Gesteins erfahren. Dessen Entstehung ist durch die Vielzahl an Wölbungen kein Geheimnis. Die Erosion und damit die ganze Kraft der Kontinentalplatten wird unter den Füssen spürbar.
+
+    </h3>
+    <p>
+
+    </p>
+  </section>
   <footer id="footer">
     <p>&copy; 2025 Joséphine Strebel</p>
   </footer>
-  <!-- Bild‑Modal -->
-  <div id="imgModal" class="img-modal" aria-hidden="true">
-    <span id="imgModalClose" class="img-modal__close">&times;</span>
-    <button id="imgPrev" class="img-modal__nav img-modal__nav--prev">&#10094;</button>
-    <img id="imgModalImg" class="img-modal__content" alt="Erweitertes Bild" />
-    <button id="imgNext" class="img-modal__nav img-modal__nav--next">&#10095;</button>
-  </div>
-
-
-<script>
-  const modal       = document.getElementById('imgModal');
-  const modalImg    = document.getElementById('imgModalImg');
-  const modalClose  = document.getElementById('imgModalClose');
-  const prevBtn     = document.getElementById('imgPrev');
-  const nextBtn     = document.getElementById('imgNext');
-  const galleryImgs = Array.from(document.querySelectorAll('.projectgallery img'));
-
-  let currentIndex = 0;
-
-  function openModal(idx) {
-    currentIndex = idx;
-    modalImg.src = galleryImgs[idx].src;
-    modalImg.alt = galleryImgs[idx].alt || 'Projekt‑Bild';
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeModal() {
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-  }
-
-  function showPrev() {
-    openModal((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
-  }
-  function showNext() {
-    openModal((currentIndex + 1) % galleryImgs.length);
-  }
-
-  // Doppelklick öffnet Modal am richtigen Index
-  galleryImgs.forEach((img, idx) => {
-    img.addEventListener('dblclick', () => openModal(idx));
-  });
-
-  // Close‑Button und Klick außerhalb
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => {
-    if (e.target === modal) closeModal();
-  });
-
-  // Vor/Zurück-Buttons
-  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
-  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
-
-  // Keyboard-Steuerung
-  document.addEventListener('keydown', e => {
-    if (modal.style.display !== 'flex') return;
-    if (e.key === 'ArrowLeft')  showPrev();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'Escape')      closeModal();
-  });
-</script>
-
 </body>
 </html>
